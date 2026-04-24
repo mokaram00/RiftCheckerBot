@@ -1,0 +1,12 @@
+{
+"currentEpicAccountEmail":"jona-hdz@live.com.mx",
+"currentEpicDisplayName":"Jona-cheke",
+"epicAccountId":"45c2ef35582a4685bfcf968542570923",
+"originalAccountEmail":"jona-hdz@live.com.mx", 
+"isEmailChangedByUser":"true",
+"isUserHaveConnectedAccounts":"true",
+"connectedAccounts":[{"type":{"label":"PlayStation Network","value":"psn"},"displayName":"Jona-cheke","connectionDate":"2022-03-22","isConnected":"false"},{"type":{"label":"Nintendo","value":"nintendo"},"displayName":"1171-0152-6613-6989-3641-2","connectionDate":"2023-01-03","isConnected":"true"},{"type":{"label":"xBoxLive","value":"xbl"},"displayName":"Jonacheke","connectionDate":"2022-11-12","isConnected":"false"},{"type":{"label":"LEGO","value":"lego"},"displayName":"EnfermeroCoyoteInspirador002","connectionDate":"2023-12-04","isConnected":"false"},{"type":{"label":"Twitch","value":"twitch"},"displayName":"jonacheke","connectionDate":"2025-08-09","isConnected":"false"}],
+"userFirstName":"Jonathan","userLastName":"Muñiz",
+"userCountry":{"value":"MX","label":"Mexico"},"userState":null,"userCity":"Puebla",
+"isDisplayNameChangedByUser":"false","originalDisplayName":"Jona-cheke",
+"isUserHavePurchase":"true","payPalEmail":"jona-hdz@live.com.mx","paymentCards":["3186","8894","0017","6270","4437"]}

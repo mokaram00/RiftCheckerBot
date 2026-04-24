@@ -1,1 +1,15 @@
+<<<<<<< HEAD
 .env
+=======
+.env
+epic_api_responses/
+img/
+MIXEDDOCS/
+bypasser/
+styles/
+*.pyc
+badges/
+themes/
+users/
+cosmetic_icons/
+>>>>>>> d985efc (hg)

@@ -1,0 +1,1588 @@
+{
+    "tag": "get_fortnite_profile_theater0",
+    "method": "POST",
+    "url": "https://fortnite-public-service-prod11.ol.epicgames.com/fortnite/api/game/v2/profile/0f6b70fa594441d99391da4809a7566f/client/QueryProfile?profileId=theater0&rvn=-1",
+    "status": 200,
+    "saved_at_utc": "2026-03-22T00:19:06.888311+00:00",
+    "response": {
+      "profileRevision": 5050,
+      "profileId": "theater0",
+      "profileChangesBaseRevision": 5050,
+      "profileChanges": [
+        {
+          "changeType": "fullProfileUpdate",
+          "enableConstructDelta": true,
+          "profile": {
+            "created": "2018-12-23T20:26:20.359Z",
+            "updated": "2026-03-21T19:21:15.284Z",
+            "rvn": 5050,
+            "wipeNumber": 9,
+            "accountId": "0f6b70fa594441d99391da4809a7566f",
+            "profileId": "theater0",
+            "version": "season29_2940_cleanupItemsWithMissingTemplates_May_2024",
+            "stats": {
+              "attributes": {
+                "player_loadout": {
+                  "bPlayerIsNew": false,
+                  "primaryQuickBarRecord": {
+                    "slots": [
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": [
+                          "72E679E55E954B10927169A1C465C8D3"
+                        ]
+                      },
+                      {
+                        "items": [
+                          "925D478A08D717BBD58E22B20D3D1F8D"
+                        ]
+                      },
+                      {
+                        "items": [
+                          "2B6D3668930D49EAA535A9BE4BABA486"
+                        ]
+                      },
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": []
+                      }
+                    ]
+                  },
+                  "secondaryQuickBarRecord": {
+                    "slots": [
+                      {
+                        "items": [
+                          "B82BC42208D66916F96FE3F4A05D361C"
+                        ]
+                      },
+                      {
+                        "items": [
+                          "B82F8E6F08D66916F96FE8C2A05D3697"
+                        ]
+                      },
+                      {
+                        "items": [
+                          "B833B3C308D66916F96FEB9CA05D36E0"
+                        ]
+                      },
+                      {
+                        "items": [
+                          "B837967E08D66916F96FEE58A05D3726"
+                        ]
+                      },
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": []
+                      },
+                      {
+                        "items": []
+                      }
+                    ]
+                  },
+                  "zonesCompleted": 136
+                }
+              }
+            },
+            "profileLockExpiration": "0001-01-01T00:00:00.000Z",
+            "commandRevision": 2069,
+            "_id": "93c5fd094dc242c8af94d091605dcc50",
+            "items": {
+              "35fa03f3-d36d-424f-a83b-bd83ddfcec36": {
+                "templateId": "Weapon:wid_sniper_vacuumtube_sr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 50,
+                  "inventory_overflow_date": false,
+                  "level": 20,
+                  "alterationDefinitions": [
+                    "Alteration:aid_ele_nature_intrin_t02",
+                    "Alteration:aid_att_reloadspeed_ranged_t02",
+                    "Alteration:aid_att_stability_t02",
+                    "Alteration:aid_att_magazinesize_t02",
+                    "Alteration:aid_conditional_stunned_dmgbonus_t03"
+                  ],
+                  "baseClipSize": 50,
+                  "durability": 375,
+                  "itemSource": "None"
+                },
+                "quantity": 1
+              },
+              "c6f3438b-08d6-7cc5-46ff-7ee258940870": {
+                "templateId": "Ingredient:ingredient_resin",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 134
+              },
+              "889fed19-22a1-47ca-a7f2-64a98252e5b1": {
+                "templateId": "Ingredient:ingredient_ore_alloy",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 382
+              },
+              "b82bc422-08d6-6916-f96f-e3f4a05d361c": {
+                "templateId": "Weapon:buildingitemdata_wall",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "d55313d4-08d6-69d1-b5b9-9aea0c7405a9": {
+                "templateId": "Ingredient:ingredient_ore_coal",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 27
+              },
+              "0564b5c9-ccbb-4734-ae77-45481e8a46ca": {
+                "templateId": "Ammo:ammodataexplosive",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Container"
+                },
+                "quantity": 39
+              },
+              "c1af0523-08d6-6ddc-cac6-c4d0ac6ca536": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Destruction"
+                },
+                "quantity": 440
+              },
+              "aa2af0dc-08d7-17ba-0130-4a32f7bc4747": {
+                "templateId": "Weapon:wid_assault_auto_sr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 30,
+                  "inventory_overflow_date": false,
+                  "level": 15,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_reloadspeed_ranged_t01",
+                    "Alteration:aid_att_maxdurability_t01",
+                    "Alteration:aid_ele_nature_t02",
+                    "Alteration:aid_att_critdamage_t03"
+                  ],
+                  "baseClipSize": 30,
+                  "durability": 258.411865234375,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "b01ac3ee-21d4-4e23-985e-e4e1ff55892e": {
+                "templateId": "WorldItem:wooditemdata",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 3121
+              },
+              "d4b466c8-08d6-7cc0-54e4-4826b6f318dd": {
+                "templateId": "Weapon:wid_edged_axe_medium_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "durability": 190.28591918945312,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "2b6d3668-930d-49ea-a535-a9be4baba486": {
+                "templateId": "Weapon:wid_edged_sword_halloween_sr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 20,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_critchance_t01",
+                    "Alteration:aid_att_heavyattackstaminacost_t01",
+                    "Alteration:aid_ele_energy_t03",
+                    "Alteration:aid_att_critdamage_t03",
+                    "Alteration:aid_conditional_slowed_dmgbonus_t03"
+                  ],
+                  "durability": 201.26063537597656,
+                  "itemSource": "None"
+                },
+                "quantity": 1
+              },
+              "d2b3f383-a988-47dd-980a-5d2c3ab4ddb1": {
+                "templateId": "Weapon:wid_edged_sword_hydraulic_sr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 20,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_firerate_melee_t02",
+                    "Alteration:aid_att_heavyattackstaminacost_t02",
+                    "Alteration:aid_att_damage_physical_t02",
+                    "Alteration:aid_att_critdamage_t02",
+                    "Alteration:aid_conditional_afflicted_dmgbonus_t03"
+                  ],
+                  "durability": 170.829833984375,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "300f4ffc-aef9-4537-8a29-82a6044beb6e": {
+                "templateId": "Ammo:ammodatabulletslight",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 741
+              },
+              "4aa8d42f-8d5e-48e4-965e-f3523701d2fc": {
+                "templateId": "Weapon:wid_sniper_military_sr_ore_t03",
+                "attributes": {
+                  "loadedAmmo": 4,
+                  "inventory_overflow_date": false,
+                  "level": 30,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_firerate_ranged_t05",
+                    "Alteration:aid_att_weaponimpact_t05",
+                    "Alteration:aid_att_damage_physical_t05",
+                    "Alteration:aid_att_headshotdamage_t05",
+                    "Alteration:aid_conditional_boss_dmgbonus_t05",
+                    "Alteration:aid_g_ranged_headshot_explodeondeath_v2"
+                  ],
+                  "baseClipSize": 4,
+                  "durability": 205.81643676757812,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "e1cec916-a6e8-4ae9-8af3-9c38fabda395": {
+                "templateId": "Weapon:wid_assault_lmg_halloween_sr_ore_t03",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 30,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_damage_t01",
+                    "Alteration:aid_att_stability_t01",
+                    "Alteration:aid_att_damage_physical_t02",
+                    "Alteration:aid_att_critdamage_t03",
+                    "Alteration:aid_conditional_boss_dmgbonus_t03",
+                    "Alteration:aid_g_weapon_onkill_spawn_healthpickups"
+                  ],
+                  "baseClipSize": 100,
+                  "durability": 286.29071044921875,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "b8db4c2d-08d6-6917-6ffb-8c26ac38112e": {
+                "templateId": "Ingredient:ingredient_twine_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 248
+              },
+              "b82f8e6f-08d6-6916-f96f-e8c2a05d3697": {
+                "templateId": "Weapon:buildingitemdata_floor",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "31be4efd-08d6-b51b-eb99-082cc86cc329": {
+                "templateId": "Weapon:wid_shotgun_tactical_r_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 5,
+                  "inventory_overflow_date": false,
+                  "level": 10,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 5,
+                  "durability": 47.5,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "09b4a712-0b5f-406b-bd35-d9b1aea79570": {
+                "templateId": "Ingredient:ingredient_twine_t01",
+                "attributes": {
+                  "inventory_overflow_date": false
+                },
+                "quantity": 187
+              },
+              "baff8965-08d6-6950-50ba-2a28a12f8735": {
+                "templateId": "Ingredient:ingredient_resin",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "da07ae3c-08d6-69d2-45cc-f5281adc5cd6": {
+                "templateId": "Ingredient:ingredient_twine_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Destruction"
+                },
+                "quantity": 215
+              },
+              "96b4aff8-08d7-17c0-52a7-d460907b1572": {
+                "templateId": "Weapon:wid_pistol_hydraulic_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 12,
+                  "inventory_overflow_date": false,
+                  "level": 5,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 12,
+                  "durability": 280,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "fb73eb9d-e1ef-45b5-a3cb-b669adab6b9b": {
+                "templateId": "Ingredient:ingredient_twine_t03",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 24
+              },
+              "c6041f41-08d6-7f0c-5e75-a76a6c47d451": {
+                "templateId": "Weapon:wid_shotgun_medieval_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 1,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 1,
+                  "durability": 219.99996948242188,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "d3e01509-08d6-7cc8-a8c7-82ca4f347fdb": {
+                "templateId": "Weapon:wid_assault_singleshot_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 10,
+                  "inventory_overflow_date": false,
+                  "level": 8,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 10,
+                  "durability": 47.5,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "d7eee187-08d6-7040-1e0e-580a7b920caa": {
+                "templateId": "Weapon:wid_shotgun_tactical_precision_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 6,
+                  "inventory_overflow_date": false,
+                  "level": 10,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 6,
+                  "durability": 126.81925964355469,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "c150ab1c-08d6-7cb1-61a4-c810477cc093": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "74415779-08d6-ed4a-4d2c-f04242bc818e": {
+                "templateId": "Weapon:wid_sniper_standard_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 10,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 10,
+                  "durability": 152.3992919921875,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "65351a6a-991f-4ab9-9fe6-2f49925d33a7": {
+                "templateId": "Weapon:wid_assault_flintlock_sr_ore_t03",
+                "attributes": {
+                  "loadedAmmo": 32,
+                  "inventory_overflow_date": false,
+                  "level": 30,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_damage_t03",
+                    "Alteration:aid_att_stability_t03",
+                    "Alteration:aid_ele_energy_t03",
+                    "Alteration:aid_att_critdamage_t03",
+                    "Alteration:aid_att_critdamage_t03",
+                    "Alteration:aid_g_weapon_hitstreak_aoe_dmg_v2"
+                  ],
+                  "baseClipSize": 32,
+                  "durability": 327.5003662109375,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "2cfe1447-6777-4eb0-99ef-caaa91dfb5e3": {
+                "templateId": "Weapon:wid_assault_auto_vr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 30,
+                  "inventory_overflow_date": false,
+                  "level": 20,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_damage_t01",
+                    "Alteration:aid_att_stability_t02",
+                    "Alteration:aid_ele_nature_t03",
+                    "Alteration:aid_att_magazinesize_t02",
+                    "Alteration:aid_conditional_boss_dmgbonus_t03"
+                  ],
+                  "baseClipSize": 30,
+                  "durability": 109.28284454345703,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "2dc79398-08d6-ba3b-c3c3-a4a447ac91a4": {
+                "templateId": "Weapon:wid_shotgun_medieval_sr_ore_t03",
+                "attributes": {
+                  "inventory_overflow_date": false,
+                  "level": 30,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_damage_t03",
+                    "Alteration:aid_att_weaponimpact_t03",
+                    "Alteration:aid_att_damage_physical_t03",
+                    "Alteration:aid_att_reloadspeed_ranged_t03",
+                    "Alteration:aid_conditional_boss_dmgbonus_t03",
+                    "Alteration:aid_g_weapon_ondmg_applysnare_v2"
+                  ],
+                  "baseClipSize": 1,
+                  "durability": 276,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "d0851b90-47f2-44d2-b66f-b6385cae6753": {
+                "templateId": "Weapon:wid_sniper_boltaction_r_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 5,
+                  "inventory_overflow_date": false,
+                  "level": 18,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_damage_t02",
+                    "Alteration:aid_att_stability_t03",
+                    "Alteration:aid_ele_energy_t02",
+                    "Alteration:aid_att_magazinesize_t03"
+                  ],
+                  "baseClipSize": 5,
+                  "durability": 190,
+                  "itemSource": "None"
+                },
+                "quantity": 1
+              },
+              "d2ca3cd2-08d6-7cc0-0c8d-7a7aafb73371": {
+                "templateId": "Weapon:wid_edged_axe_medium_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "durability": 221.52529907226562,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "88eb9cbd-bdde-430b-a84f-a617cddf856a": {
+                "templateId": "WorldItem:stoneitemdata",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 2900
+              },
+              "e3b99943-08d6-6f64-270b-ec920264f853": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "e9a27d5b-08d6-951c-69e4-70e240f9fa5c": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "7b8a5a5c-d3d1-4f96-8443-f59356c2ed8a": {
+                "templateId": "Weapon:wid_shotgun_semiauto_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 10,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 8,
+                  "durability": 44.611114501953125,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "b83bbc17-08d6-6916-f96f-f0f6a05d3769": {
+                "templateId": "Weapon:edittool",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "c70b4f18-08d6-703e-dedc-f7fa5ba6c8ac": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "f14862c3-f2f1-4625-a774-1f289b1aa58e": {
+                "templateId": "Weapon:wid_edged_axe_vt_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 8,
+                  "alterationDefinitions": [
+                    "Alteration:aid_ele_energy_intrin_t01",
+                    "Alteration:aid_att_lifeleech_t02"
+                  ],
+                  "durability": 89.23612213134766,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "f2269dbb-08d6-87db-28fa-7476887ae666": {
+                "templateId": "Ingredient:ingredient_duct_tape",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 48
+              },
+              "c5045715-08d6-6dc1-9a23-e9c248f830d2": {
+                "templateId": "Ingredient:ingredient_twine_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "7aa99e73-0105-42f4-b776-7ec5404a2a58": {
+                "templateId": "Weapon:wid_shotgun_standard_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 5,
+                  "baseClipSize": 5,
+                  "durability": 190
+                },
+                "quantity": 1
+              },
+              "e0233bc3-fa10-422e-b38a-f3107a315162": {
+                "templateId": "Weapon:wid_shotgun_break_ou_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 2,
+                  "inventory_overflow_date": false,
+                  "level": 5,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 2,
+                  "durability": 47.5,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "bbec255b-08d6-7f0a-3ce9-6c1435b97fc4": {
+                "templateId": "Weapon:wid_pistol_autoheavy_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 6,
+                  "inventory_overflow_date": false,
+                  "level": 7,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_critdamage_t01"
+                  ],
+                  "baseClipSize": 25,
+                  "durability": 80.1312255859375,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "cad6e61b-08d6-7f0d-4bc0-169a84029b46": {
+                "templateId": "Ingredient:ingredient_mechanical_parts_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Destruction"
+                },
+                "quantity": 290
+              },
+              "cac46187-08d6-6dac-a21c-02aa3c2aeaaa": {
+                "templateId": "Ingredient:ingredient_ore_silver",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 34
+              },
+              "925d478a-08d7-17bb-d58e-22b20d3d1f8d": {
+                "templateId": "Weapon:wid_pistol_halloween_handcannon_sr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 5,
+                  "inventory_overflow_date": false,
+                  "level": 20,
+                  "alterationDefinitions": [
+                    "Alteration:aid_ele_energy_intrin_t01",
+                    "Alteration:aid_att_damage_t02",
+                    "Alteration:aid_att_reloadspeed_ranged_t02",
+                    "Alteration:aid_att_critdamage_t02",
+                    "Alteration:aid_conditional_slowed_dmgbonus_t03"
+                  ],
+                  "baseClipSize": 6,
+                  "durability": 171.3310089111328,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "6e267af7-8a13-4ead-b49c-c3731637894a": {
+                "templateId": "Weapon:wid_sniper_boltaction_scope_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 5,
+                  "baseClipSize": 5,
+                  "durability": 190
+                },
+                "quantity": 1
+              },
+              "8136d029-08d6-ec17-ad41-3288b4ed2f26": {
+                "templateId": "Weapon:wid_shotgun_semiauto_scavenger_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 8,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 8,
+                  "durability": 188.8885498046875,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "bdf2ff3a-08d6-6e8f-4ae9-e6daf4977008": {
+                "templateId": "Ammo:ammodatabulletsheavy",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Container"
+                },
+                "quantity": 787
+              },
+              "c4b2e312-08d6-6d1c-0db4-784453b4fb68": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "c1ea4e1f-08d6-69cf-fb8e-e680e03c897a": {
+                "templateId": "Ingredient:ingredient_mechanical_parts_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Destruction"
+                },
+                "quantity": 36
+              },
+              "f5510848-e4ff-4a30-80e3-6df00c441ed5": {
+                "templateId": "Weapon:wid_assault_hydraulic_drum_vr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 19,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_critchance_t02",
+                    "Alteration:aid_att_stability_t02",
+                    "Alteration:aid_ele_water_t02",
+                    "Alteration:aid_att_magazinesize_t03"
+                  ],
+                  "baseClipSize": 40,
+                  "durability": 9.181049346923828,
+                  "itemSource": "EFortPickupSourceTypeFlag::Player, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 1
+              },
+              "8815c233-0af9-4ed8-bc60-648c9d991410": {
+                "templateId": "Ingredient:ingredient_powder_t03",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 32
+              },
+              "bfbe7153-08d6-6f66-03d4-7ada84dd86d1": {
+                "templateId": "Weapon:wid_blunt_light_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 8,
+                  "alterationDefinitions": [],
+                  "durability": 272.62451171875,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "8890ec4e-b49a-4727-b01a-63c70f0d66d7": {
+                "templateId": "Ingredient:ingredient_mechanical_parts_t03",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 6
+              },
+              "df491b2c-4ee6-4a38-ba3d-c11f5b434e75": {
+                "templateId": "Weapon:wid_shotgun_break_ou_r_ore_t03",
+                "attributes": {
+                  "loadedAmmo": 2,
+                  "inventory_overflow_date": false,
+                  "level": 20,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_damage_t02",
+                    "Alteration:aid_att_stability_t02",
+                    "Alteration:aid_ele_fire_t02",
+                    "Alteration:aid_att_damage_t02"
+                  ],
+                  "baseClipSize": 2,
+                  "durability": 190,
+                  "itemSource": "None"
+                },
+                "quantity": 1
+              },
+              "b8e97529-08d6-6917-7171-cb9cac5d7e36": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "98f9aaad-86a7-4395-98af-a123915982c6": {
+                "templateId": "Ingredient:ingredient_blastpowder",
+                "attributes": {
+                  "level": 0
+                },
+                "quantity": 6
+              },
+              "c2698cb0-5d3a-4cb2-ab91-03f03e3a90ba": {
+                "templateId": "Weapon:wid_edged_sword_medium_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "durability": 190
+                },
+                "quantity": 1
+              },
+              "2869a52d-08d6-ba3a-ef5d-3856326f2236": {
+                "templateId": "Ingredient:ingredient_powder_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 0,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 125
+              },
+              "a1f2f6f3-d84b-4db7-a1f1-d111809df933": {
+                "templateId": "Weapon:wid_assault_autodrum_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 50,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 50,
+                  "durability": 375,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "876296a1-9333-4b62-9b9a-8119807f9f0a": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "be9412cd-08d6-6ba0-8e7e-f0da9f21c09f": {
+                "templateId": "Ingredient:ingredient_powder_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Destruction"
+                },
+                "quantity": 229
+              },
+              "98843823-08d7-17c0-acbe-056e997d4cca": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "b7df675c-88c9-4d9e-a93b-5f3efff591bd": {
+                "templateId": "Ingredient:ingredient_ore_copper",
+                "attributes": {
+                  "inventory_overflow_date": false,
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 124
+              },
+              "edffbcdb-15b5-4f27-8b6f-f358ea6f75c0": {
+                "templateId": "Weapon:wid_sniper_amr_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 4,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [
+                    "Alteration:aid_ele_energy_intrin_t01"
+                  ],
+                  "baseClipSize": 6,
+                  "durability": 248.54275512695312,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "c1dfa839-254b-4f45-a79e-fba2e75ba4a1": {
+                "templateId": "Ingredient:ingredient_twine_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 46
+              },
+              "24e4c7ab-119e-4c51-9bfe-93e6f21c2aa3": {
+                "templateId": "Ingredient:ingredient_ore_malachite",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 4
+              },
+              "b9efb32c-08d6-6943-5c34-f23228b4c534": {
+                "templateId": "Ingredient:ingredient_flowers",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 214
+              },
+              "887e079f-6d8d-4413-b633-7fdbb3f5a926": {
+                "templateId": "Ammo:ammodatashells",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 202
+              },
+              "b833b3c3-08d6-6916-f96f-eb9ca05d36e0": {
+                "templateId": "Weapon:buildingitemdata_stair_w",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "e6f6c48f-c0c5-4aad-a87a-9547301753fd": {
+                "templateId": "Ingredient:ingredient_batteries",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Destruction"
+                },
+                "quantity": 22
+              },
+              "265cc92f-4d04-439d-a718-b534ea3aae98": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 14
+              },
+              "bc6f3bb5-08d6-69cf-908a-889ed588e5a9": {
+                "templateId": "Ingredient:ingredient_rare_mechanism",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 57
+              },
+              "bf538cee-08d6-6ec7-be96-aea02d7a82fc": {
+                "templateId": "Ammo:ammodatabulletsmedium",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Container"
+                },
+                "quantity": 645
+              },
+              "c907131b-08d6-69d0-8f4e-e5e6ef02f0f5": {
+                "templateId": "Ingredient:ingredient_batteries",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "49ea450d-071d-4042-98aa-b160ff0630cc": {
+                "templateId": "Weapon:wid_assault_auto_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 30,
+                  "inventory_overflow_date": false,
+                  "baseClipSize": 30,
+                  "durability": 181.14730834960938
+                },
+                "quantity": 1
+              },
+              "c7fb1895-08d6-6f55-9fec-055cae186ae5": {
+                "templateId": "Weapon:wid_blunt_club_light_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 2,
+                  "alterationDefinitions": [],
+                  "durability": 245.8394317626953,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "7439dfc1-08d6-edb1-0a2c-8a16368aecf3": {
+                "templateId": "Weapon:wid_pistol_hydraulic_vr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 6,
+                  "inventory_overflow_date": false,
+                  "level": 10,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 12,
+                  "durability": 67.10002136230469,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "db9b45c4-08d6-7040-6c81-de62836a6284": {
+                "templateId": "Weapon:wid_pistol_firecracker_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 1,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 1,
+                  "durability": 183.8999786376953,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "cbd7fb4d-08d6-7cb7-3a9b-84f6dd2fff2c": {
+                "templateId": "Weapon:wid_pistol_sixshooter_uc_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 6,
+                  "inventory_overflow_date": false,
+                  "level": 2,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 6,
+                  "durability": 13.983373641967773,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "84741900-ed1f-4903-babb-cb9e7d6f38c4": {
+                "templateId": "Weapon:wid_assault_auto_vt_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 15,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [
+                    "Alteration:aid_ele_energy_intrin_t01"
+                  ],
+                  "baseClipSize": 21,
+                  "durability": 128.09828186035156,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "4c74acd8-68e8-476d-a46b-04bee7eb49b9": {
+                "templateId": "Ingredient:ingredient_nuts_bolts",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 197
+              },
+              "c99f66fb-08d6-7f0d-213a-9b487fc208cf": {
+                "templateId": "Weapon:wid_blunt_hammer_medieval_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 10,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_critchance_t02",
+                    "Alteration:aid_att_movementspeed_t02"
+                  ],
+                  "durability": 40.96784973144531,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "dbab03fa-08d6-7cc1-0ea1-12f8c986043f": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "633fa9fb-c021-44f5-9392-6c1c7113a4a4": {
+                "templateId": "Weapon:wid_shotgun_dragon_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 5,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 5,
+                  "durability": 268.916015625,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "c4ae1252-08d6-7cb5-e0a9-9e98ba97941f": {
+                "templateId": "Ingredient:ingredient_powder_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 76
+              },
+              "0ac08ec0-29e4-4242-bb27-317ffefee1f5": {
+                "templateId": "Weapon:wid_pistol_rapid_founders_vr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 20,
+                  "baseClipSize": 20,
+                  "durability": 280
+                },
+                "quantity": 1
+              },
+              "bf2430d7-08d6-69cf-bc2d-175ad9e5f445": {
+                "templateId": "Ingredient:ingredient_powder_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "72e679e5-5e95-4b10-9271-69a1c465c8d3": {
+                "templateId": "Weapon:wid_assault_auto_sr_crystal_t05",
+                "attributes": {
+                  "loadedAmmo": 28,
+                  "inventory_overflow_date": false,
+                  "level": 50,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_critchance_t05",
+                    "Alteration:aid_att_maxdurability_t05",
+                    "Alteration:aid_ele_fire_t05",
+                    "Alteration:aid_att_damage_t05",
+                    "Alteration:aid_conditional_boss_dmgbonus_t05",
+                    "Alteration:aid_g_ranged_headshot_explodeondeath_v2"
+                  ],
+                  "baseClipSize": 30,
+                  "durability": 7.112464904785156,
+                  "itemSource": "EFortPickupSourceTypeFlag::Player, EFortPickupSourceTypeFlag::Tossed"
+                },
+                "quantity": 1
+              },
+              "7251cce1-08d6-edb3-af17-d27224ffe9b3": {
+                "templateId": "Weapon:wid_sniper_amr_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 6,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [
+                    "Alteration:aid_ele_energy_intrin_t02"
+                  ],
+                  "baseClipSize": 6,
+                  "durability": 354.5225830078125,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "d1e9f0b1-08d6-8883-4e3d-85864ee5fb44": {
+                "templateId": "Weapon:wid_shotgun_break_ou_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 2,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 2,
+                  "durability": 46.85555648803711,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "c550e21c-08d6-6999-ec82-8c7c25ca8cc6": {
+                "templateId": "Ingredient:ingredient_bacon",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Container"
+                },
+                "quantity": 139
+              },
+              "c6700057-a62c-4746-8ab9-ceca5f7afb1c": {
+                "templateId": "Weapon:wid_assault_autodrum_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 50,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 50,
+                  "durability": 273.81573486328125,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "81ee6040-f88d-41f1-81c0-83823f065c70": {
+                "templateId": "Weapon:wid_shotgun_break_c_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 2,
+                  "inventory_overflow_date": false,
+                  "level": 8,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_reloadspeed_ranged_t02"
+                  ],
+                  "baseClipSize": 2,
+                  "durability": 13.888883590698242,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "e2b063e3-08d6-9514-3ecf-f0fad0cb55e7": {
+                "templateId": "Ingredient:ingredient_herbs",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Container"
+                },
+                "quantity": 146
+              },
+              "7a553fd0-08d6-ec16-b69e-9da89c43558c": {
+                "templateId": "Weapon:wid_pistol_handcannon_r_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 6,
+                  "inventory_overflow_date": false,
+                  "level": 10,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 6,
+                  "durability": 131.19940185546875,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "c643594b-08d6-7cb6-2553-370cc175626b": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "dbdc71bc-08d6-87d9-f5e9-7c6869c5fde3": {
+                "templateId": "WorldItem:metalitemdata",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::AI, EFortPickupSourceTypeFlag::Tossed: EFortPickupSpawnSource::BotElimination"
+                },
+                "quantity": 3865
+              },
+              "b8f7b44e-08d6-6917-7ab9-5472ad4b0db4": {
+                "templateId": "Ingredient:ingredient_herbs",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              },
+              "9438c175-08d7-16bd-169d-5e08edae767b": {
+                "templateId": "Weapon:wid_shotgun_tactical_c_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 5,
+                  "inventory_overflow_date": false,
+                  "level": 7,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 5,
+                  "durability": 16.083316802978516,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "b837967e-08d6-6916-f96f-ee58a05d3726": {
+                "templateId": "Weapon:buildingitemdata_roofs",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "5a1c7ad8-e67e-4344-98db-99fa89c657d4": {
+                "templateId": "Ammo:ammodataenergycell",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Container"
+                },
+                "quantity": 379
+              },
+              "c189158f-08d6-6951-c150-d40cc60b74fb": {
+                "templateId": "Ingredient:ingredient_crystal_quartz",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "EFortPickupSourceTypeFlag::Destruction"
+                },
+                "quantity": 48
+              },
+              "d1597a94-08d6-87dd-b37e-f89a2131fc01": {
+                "templateId": "Ammo:ammodataproximitymines",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 4
+              },
+              "74dfc6ee-08d6-ed4a-6817-a398456d9343": {
+                "templateId": "Weapon:wid_sniper_boltaction_scope_r_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 1,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 5,
+                  "durability": 124.01644897460938,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "d3b0eab2-d9d1-4041-b1f5-b0c47add4df5": {
+                "templateId": "Ingredient:ingredient_mechanical_parts_t01",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 44
+              },
+              "c19177f0-08d6-6951-c1b4-1e86c61562d9": {
+                "templateId": "Ingredient:ingredient_rare_powercell",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": "None"
+                },
+                "quantity": 34
+              },
+              "c90b3784-08d6-7cb6-98fc-86cccd0664c3": {
+                "templateId": "Weapon:wid_shotgun_minigun_sr_ore_t01",
+                "attributes": {
+                  "loadedAmmo": 10,
+                  "inventory_overflow_date": false,
+                  "level": 8,
+                  "alterationDefinitions": [],
+                  "baseClipSize": 20,
+                  "durability": 218.03182983398438,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "db09aa1f-c234-4869-a32c-7f291f995e95": {
+                "templateId": "Weapon:wid_blunt_hammer_boombox_sr_ore_t02",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 20,
+                  "alterationDefinitions": [
+                    "Alteration:aid_att_heavyattackstaminacost_t03",
+                    "Alteration:aid_att_damage_t03",
+                    "Alteration:aid_att_damage_physical_t03",
+                    "Alteration:aid_att_damageresistance_t03",
+                    "Alteration:aid_att_damage_t03"
+                  ],
+                  "durability": 59.02716064453125,
+                  "itemSource": ""
+                },
+                "quantity": 1
+              },
+              "c3337798-08d6-6da5-aeaa-aad22724e566": {
+                "templateId": "Ingredient:ingredient_planks",
+                "attributes": {
+                  "loadedAmmo": 0,
+                  "inventory_overflow_date": false,
+                  "level": 0,
+                  "alterationDefinitions": [],
+                  "durability": 1,
+                  "itemSource": ""
+                },
+                "quantity": 200
+              }
+            }
+          }
+        }
+      ],
+      "profileCommandRevision": 2069,
+      "creationTime": "2018-12-23T20:26:20.359Z",
+      "serverTime": "2026-03-22T00:19:06.826Z",
+      "responseVersion": 1
+    }
+  }

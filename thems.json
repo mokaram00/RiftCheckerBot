@@ -1,0 +1,140 @@
+{"THEMES":{
+    "silver": {
+        "username_start": [192, 192, 192],    
+        "username_end": [105, 105, 105],      
+        "background_start": [192, 192, 192],  
+        "background_end": [105, 105, 105],    
+        "shadow": [211, 211, 211, 120],       
+        "accent": [105, 105, 105]           
+    },
+    "blue": {
+        "username_start": [65, 105, 225],     
+        "username_end": [25, 25, 112],        
+        "background_start": [65, 105, 225],   
+        "background_end": [25, 25, 112],      
+        "shadow": [173, 216, 230, 120],       
+        "accent": [25, 25, 112]              
+    },
+    "neon": {
+        "username_start": [0, 255, 255],      
+        "username_end": [147, 112, 219],      
+        "background_start": [0, 255, 255],    
+        "background_end": [147, 112, 219],    
+        "shadow": [180, 255, 255, 120],       
+        "accent": [147, 112, 219]            
+    },
+    "dark": {
+        "username_start": [50, 50, 50],       
+        "username_end": [25, 25, 25],         
+        "background_start": [30, 30, 30],     
+        "background_end": [15, 15, 15],       
+        "shadow": [80, 80, 80, 150],          
+        "accent": [70, 130, 180]             
+    },
+    "ocean": {
+        "username_start": [0, 100, 200],      
+        "username_end": [0, 50, 100],         
+        "background_start": [0, 120, 200],    
+        "background_end": [0, 80, 160],       
+        "shadow": [173, 216, 230, 120],       
+        "accent": [0, 200, 255]
+    },
+    "sunset": {
+        "username_start": [255, 100, 0],        
+        "username_end": [139, 0, 139],        
+        "background_start": [255, 140, 0],    
+        "background_end": [186, 85, 211],     
+        "shadow": [255, 165, 0, 120],         
+        "accent": [255, 20, 147]
+    },
+    "forest": {
+        "username_start": [34, 139, 34],      
+        "username_end": [0, 100, 0],          
+        "background_start": [34, 139, 34],    
+        "background_end": [0, 100, 0],        
+        "shadow": [144, 238, 144, 120],       
+        "accent": [50, 205, 50]
+    },
+    "space": {
+        "username_start": [75, 0, 130],      
+        "username_end": [25, 25, 112],       
+        "background_start": [40, 0, 80],      
+        "background_end": [15, 15, 45],      
+        "shadow": [138, 43, 226, 120],       
+        "accent": [123, 104, 238]            
+    },
+    "steel": {
+        "username_start": [128, 128, 128],   
+        "username_end": [70, 130, 180],       
+        "background_start": [105, 105, 105],  
+        "background_end": [70, 130, 180],     
+        "shadow": [169, 169, 169, 120],       
+        "accent": [70, 130, 180]      
+    },
+    "carbon": {
+        "username_start": [40, 40, 40],      
+        "username_end": [178, 34, 34],        
+        "background_start": [30, 30, 30],    
+        "background_end": [139, 0, 0],        
+        "shadow": [105, 105, 105, 150],      
+        "accent": [220, 20, 60]             
+    },
+    "military": {
+        "username_start": [85, 107, 47],  
+        "username_end": [101, 67, 33],        
+        "background_start": [85, 107, 47],    
+        "background_end": [101, 67, 33],      
+        "shadow": [154, 205, 50, 120],        
+        "accent": [189, 183, 107]            
+    },
+    "custom": {
+        "username_start": [192, 192, 192],    
+        "username_end": [105, 105, 105],     
+        "background_start": [192, 192, 192],  
+        "background_end": [105, 105, 105],    
+        "shadow": [211, 211, 211, 120],       
+        "accent": [105, 105, 105]           
+    },
+        "galaxy": {
+        "username_start": [138, 43, 226],     
+        "username_end": [0, 191, 255],       
+        "background_start": [20, 10, 40],
+        "background_end": [0, 30, 60],
+        "shadow": [90, 60, 150, 140],
+        "accent": [0, 191, 255]
+    },
+    "inferno": {
+        "username_start": [255, 69, 0],   
+        "username_end": [255, 215, 0],        
+        "background_start": [50, 0, 0],
+        "background_end": [120, 20, 0],
+        "shadow": [255, 140, 0, 130],
+        "accent": [255, 215, 0]
+    },
+    "voltage": {
+        "username_start": [255, 255, 0],      
+        "username_end": [0, 120, 255],       
+        "background_start": [10, 10, 10],
+        "background_end": [30, 30, 30],
+        "shadow": [255, 255, 150, 120],
+        "accent": [0, 120, 255]
+    },
+    "mythic_ice": {
+        "username_start": [240, 248, 255],    
+        "username_end": [0, 180, 255],       
+        "background_start": [10, 20, 30],
+        "background_end": [0, 60, 90],
+        "shadow": [180, 220, 255, 140],
+        "accent": [0, 180, 255]
+    },
+    "void": {
+        "username_start": [186, 85, 211],     
+        "username_end": [255, 20, 147],     
+        "background_start": [10, 0, 20],
+        "background_end": [30, 0, 40],
+        "shadow": [180, 80, 200, 140],
+        "accent": [255, 20, 147]
+    }
+  },
+  "THEME_ORDER": ["inferno", "silver", "blue", "neon", "dark", "ocean", "sunset", "forest", "space", "steel", "carbon", "military", "custom", "galaxy", "voltage", "mythic_ice", "void"]
+}

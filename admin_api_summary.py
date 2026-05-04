@@ -20,10 +20,13 @@ def summary_sending_enabled() -> bool:
 
 _CF = re.compile(
     r"cloudflare|__cf|cf[-_]ray|cdn-cgi/|/cdn-cgi/|"
+    r"challenge[-\s]?platform|"
+    r"__cf\$cv|__CF\$cv|"
     r"just[\s]a[\s]moment|checking your browser|"
     r"challenge[-\s]?(platform|iframe)|"
     r"ddos protection|attention required|"
-    r"perlu ditinjau|enable\s+javascript",
+    r"perlu ditinjau|enable\s+javascript|"
+    r"static-assets-prod\.unrealengine\.com/account-portal",
     re.IGNORECASE | re.DOTALL,
 )
 
@@ -52,6 +55,32 @@ def looks_like_cloudflare_html(text: str) -> bool:
         ):
             return True
     return False
+
+
+def non_json_api_response_hint(text: str, *, what: str = "response") -> str:
+    """
+    When ``json.loads`` fails, explain whether the body looks like a Cloudflare
+    challenge, Epic account-portal HTML, or other non-JSON — without dumping
+    the full page (keeps process logs small).
+    """
+    if not text or not str(text).strip():
+        return f"empty {what} (expected JSON)"
+    t = str(text)[:20000]
+    if re.search(r"__cf\$cv|cdn-cgi/challenge", t, re.I) or "challenge-platform" in t.lower():
+        return (
+            f"Cloudflare / browser challenge in {what} "
+            f"(not API JSON — try different TLS fingerprint, or server IP is blocked)"
+        )
+    if looks_like_cloudflare_html(t):
+        return f"WAF/Cloudflare-style HTML in {what} (not API JSON)"
+    low = t.lstrip().lower()
+    if low.startswith("<!doctype") or low.startswith("<html"):
+        if "unrealengine.com" in t and "account-portal" in t:
+            return (
+                f"Epic account-portal HTML shell in {what} (blocked as bot / wrong cookies — not JSON)"
+            )
+        return f"HTML in {what} (expected JSON) — {what} may be a block or login page"
+    return f"not valid JSON in {what} (first byte not {{ or [)"
 
 
 def session_start() -> None:

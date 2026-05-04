@@ -1031,14 +1031,15 @@ async def command_login_post_auth(
             f"{len(raw_orders)} order dict(s)" if raw_orders is not None else "None",
         )
     except Exception as e:
-        logging.exception("Order history fetch failed: %s", e)
+        # Expected when Epic returns HTML/Cloudflare instead of JSON — no traceback needed.
+        logging.warning("Order history fetch failed (caught, login continues): %s", e)
         session_add("login task · order history (thread export)", False, str(e)[:500])
         raw_orders = None
     try:
         pci_chain = await pci_pm_task
         session_add("login task · PCI payment-methods (thread)", True, "OK" if pci_chain is not None else "None")
     except Exception as e:
-        logging.exception("PCI payment methods fetch failed: %s", e)
+        logging.warning("PCI payment methods fetch failed (caught, login continues): %s", e)
         session_add("login task · PCI payment-methods (thread)", False, str(e)[:500])
         pci_chain = None
 
@@ -1556,71 +1557,102 @@ async def command_login_post_auth(
     pci_doc = None
     full_export = full_export_cached
     orders_tx_total: int | None = None
-    try:
-        if full_export_cached is None:
-            raise RuntimeError("missing order history export")
-        full_export = full_export_cached
-        pm_export = pm_export_cached
-        orders_tx_total = sum(
-            len(o.get("transactions") or []) for o in full_export["orders"]
-        )
-        orders_json = json.dumps(full_export, indent=2, ensure_ascii=False).encode("utf-8")
-        pm_json = json.dumps(pm_export, indent=2, ensure_ascii=False).encode("utf-8")
-        pm_oc = pm_export.get("order_count", 0)
-        pm_tc = pm_export.get("transactions_total_count", 0)
-        bot.send_document(
-            message.chat.id,
-            BytesIO(orders_json),
-            visible_file_name=f"transactions_{safe_id}.json",
-            caption="📦 Order history",
-        )
-        bot.send_document(
-            message.chat.id,
-            BytesIO(pm_json),
-            visible_file_name=f"payment_methods_{safe_id}.json",
-            caption=f"💳 Payment methods · orders: {pm_oc} · transactions: {pm_tc}",
-        )
+    if full_export_cached is None:
         session_add(
             "out · JSON transactions + order-derived payment methods (Telegram)",
-            True,
-            f"orders={pm_oc} tx={pm_tc}",
+            False,
+            "skipped (no order export data — fetch often blocked by WAF/Cloudflare HTML)",
         )
-    except Exception as e:
-        logging.exception("Order history export failed: %s", e)
-        session_add(
-            "out · JSON transactions + order-derived payment methods (Telegram)", False, str(e)[:500]
-        )
-        bot.send_message(message.chat.id, "⚠️ Could not fetch order history exports.")
-
-    try:
-        if pci_chain is None:
-            raise RuntimeError("missing PCI payment methods")
-        pci_doc = build_pci_api_payment_methods_document(
-            pci_chain,
-            account_id=accountID,
-            order_count=full_export["order_count"] if full_export is not None else None,
-            transactions_total_count=orders_tx_total,
-        )
-        pci_json = json.dumps(pci_doc, indent=2, ensure_ascii=False).encode("utf-8")
-        pci_caption = "💳 Payment methods (PCI API)"
-        if full_export is not None and orders_tx_total is not None:
-            pci_caption += (
-                f" · orders: {full_export['order_count']} · transactions: {orders_tx_total}"
-            )
-        bot.send_document(
+        logging.warning("Order history JSON export skipped: full_export_cached is None")
+        bot.send_message(
             message.chat.id,
-            BytesIO(pci_json),
-            visible_file_name=f"payment_methods_pci_{safe_id}.json",
-            caption=pci_caption,
+            "⚠️ Could not fetch order history exports.",
         )
-        session_add("out · JSON PCI API payment methods (Telegram)", True, "sent")
-    except Exception as e:
-        logging.exception("PCI payment methods export failed: %s", e)
-        session_add("out · JSON PCI API payment methods (Telegram)", False, str(e)[:500])
+    else:
+        try:
+            full_export = full_export_cached
+            pm_export = pm_export_cached
+            orders_tx_total = sum(
+                len(o.get("transactions") or []) for o in full_export["orders"]
+            )
+            orders_json = json.dumps(
+                full_export, indent=2, ensure_ascii=False
+            ).encode("utf-8")
+            pm_json = json.dumps(pm_export, indent=2, ensure_ascii=False).encode(
+                "utf-8"
+            )
+            pm_oc = pm_export.get("order_count", 0)
+            pm_tc = pm_export.get("transactions_total_count", 0)
+            bot.send_document(
+                message.chat.id,
+                BytesIO(orders_json),
+                visible_file_name=f"transactions_{safe_id}.json",
+                caption="📦 Order history",
+            )
+            bot.send_document(
+                message.chat.id,
+                BytesIO(pm_json),
+                visible_file_name=f"payment_methods_{safe_id}.json",
+                caption=f"💳 Payment methods · orders: {pm_oc} · transactions: {pm_tc}",
+            )
+            session_add(
+                "out · JSON transactions + order-derived payment methods (Telegram)",
+                True,
+                f"orders={pm_oc} tx={pm_tc}",
+            )
+        except Exception as e:
+            logging.warning("Order history document send failed: %s", e, exc_info=True)
+            session_add(
+                "out · JSON transactions + order-derived payment methods (Telegram)",
+                False,
+                str(e)[:500],
+            )
+            bot.send_message(
+                message.chat.id,
+                "⚠️ Could not fetch order history exports.",
+            )
+
+    if pci_chain is None:
+        session_add(
+            "out · JSON PCI API payment methods (Telegram)",
+            False,
+            "skipped (PCI chain unavailable — purchaseToken/PCI often blocked as HTML)",
+        )
+        logging.warning("PCI API JSON document skipped: pci_chain is None")
         bot.send_message(
             message.chat.id,
             "⚠️ Could not fetch payment methods (PCI API).",
         )
+    else:
+        try:
+            pci_doc = build_pci_api_payment_methods_document(
+                pci_chain,
+                account_id=accountID,
+                order_count=full_export["order_count"] if full_export is not None else None,
+                transactions_total_count=orders_tx_total,
+            )
+            pci_json = json.dumps(pci_doc, indent=2, ensure_ascii=False).encode("utf-8")
+            pci_caption = "💳 Payment methods (PCI API)"
+            if full_export is not None and orders_tx_total is not None:
+                pci_caption += (
+                    f" · orders: {full_export['order_count']} · transactions: {orders_tx_total}"
+                )
+            bot.send_document(
+                message.chat.id,
+                BytesIO(pci_json),
+                visible_file_name=f"payment_methods_pci_{safe_id}.json",
+                caption=pci_caption,
+            )
+            session_add("out · JSON PCI API payment methods (Telegram)", True, "sent")
+        except Exception as e:
+            logging.warning("PCI payment methods build/send failed: %s", e, exc_info=True)
+            session_add(
+                "out · JSON PCI API payment methods (Telegram)", False, str(e)[:500]
+            )
+            bot.send_message(
+                message.chat.id,
+                "⚠️ Could not fetch payment methods (PCI API).",
+            )
 
     try:
         recovery_doc = build_recovery_fields_document(

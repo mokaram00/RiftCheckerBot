@@ -33,7 +33,7 @@ from epic_auth import fetch_account_portal_v2_html_sync
 from epic_response_log import epic_log_from_response
 from utils import extract_account_portal_preload_json, format_portal_2fa_methods_text
 
-ORDERS_URL = "https://www.epicgames.com/account/v2/"
+ORDERS_URL = "https://accounts.epicgames.com/account/v2/"
 LIST_PARAMS = {
     "count": "500",
     "sortDir": "DESC",

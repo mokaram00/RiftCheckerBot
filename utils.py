@@ -12,7 +12,11 @@ from typing import Any, Dict, List, Optional, Union
 
 from curl_cffi import requests as curl_requests
 
-from admin_api_summary import looks_like_cloudflare_html, session_add
+from admin_api_summary import (
+    looks_like_cloudflare_html,
+    non_json_api_response_hint,
+    session_add,
+)
 from epic_response_log import epic_log_from_response
 
 
@@ -1344,7 +1348,7 @@ _EPIC_PAYMENT_UA = (
 )
 _EPIC_ID_CSRF_URL = "https://www.epicgames.com/id/api/csrf"
 _EPIC_PURCHASE_TOKEN_URL = (
-    "https://www.epicgames.com/account/v2/payment/purchaseToken?locale=en-US"
+    "https://accounts.epicgames.com/account/v2/payment/purchaseToken?locale=en-US"
 )
 _EPIC_PCI_PAYMENT_METHODS_URL = (
     "https://payment-website-pci.ol.epicgames.com/v2/purchase/payment-methods"
@@ -1441,21 +1445,18 @@ def get_epic_purchase_token_sync(
     st = int(getattr(r, "status_code", 0) or 0)
     body = getattr(r, "text", None) or ""
     if st != 200:
-        d = f"HTTP {st}"
-        if looks_like_cloudflare_html(body):
-            d += " · Cloudflare/WAF"
+        ph = non_json_api_response_hint(body, what="body")
+        d = f"HTTP {st} · {ph[:400]}"
         session_add("PCI: POST /payment/purchaseToken", False, d)
         raise RuntimeError(
-            f"purchaseToken failed HTTP {r.status_code}: {r.text[:500]}"
+            f"purchaseToken failed HTTP {r.status_code}: {ph[:500]}"
         )
     try:
         data = r.json()
     except json.JSONDecodeError as e:
-        d = "invalid JSON"
-        if looks_like_cloudflare_html(body):
-            d += " · likely Cloudflare/HTML"
-        session_add("PCI: POST /payment/purchaseToken", False, d)
-        raise RuntimeError(f"purchaseToken invalid JSON: {e}") from e
+        hint = non_json_api_response_hint(r.text or "", what="purchaseToken body")
+        session_add("PCI: POST /payment/purchaseToken", False, hint)
+        raise RuntimeError(f"purchaseToken invalid JSON: {hint}") from e
     pt = data.get("purchaseToken") if isinstance(data, dict) else None
     if not pt:
         session_add("PCI: POST /payment/purchaseToken", False, "missing purchaseToken in JSON")
@@ -1488,21 +1489,20 @@ def get_epic_pci_payment_methods_sync(
     st = int(getattr(r, "status_code", 0) or 0)
     body = getattr(r, "text", None) or ""
     if st != 200:
-        d = f"HTTP {st}"
-        if looks_like_cloudflare_html(body):
-            d += " · Cloudflare/WAF"
+        ph = non_json_api_response_hint(body, what="body")
+        d = f"HTTP {st} · {ph[:400]}"
         session_add("PCI: GET ol.epic PCI payment-methods", False, d)
         raise RuntimeError(
-            f"PCI payment-methods failed HTTP {r.status_code}: {r.text[:500]}"
+            f"PCI payment-methods failed HTTP {r.status_code}: {ph[:500]}"
         )
     try:
         j = r.json()
     except json.JSONDecodeError as e:
-        d = "invalid JSON"
-        if looks_like_cloudflare_html(body):
-            d += " · likely Cloudflare"
-        session_add("PCI: GET ol.epic PCI payment-methods", False, d)
-        raise RuntimeError(f"PCI payment-methods invalid JSON: {e}") from e
+        ph = non_json_api_response_hint(body, what="PCI payment-methods body")
+        session_add("PCI: GET ol.epic PCI payment-methods", False, ph)
+        raise RuntimeError(
+            f"PCI payment-methods invalid JSON: {ph[:500]}"
+        ) from e
     session_add("PCI: GET ol.epic PCI payment-methods", True, "OK")
     return j
 

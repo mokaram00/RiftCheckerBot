@@ -1611,7 +1611,7 @@ async def get_cosmetic_data(cosmetic_lowercase_id):
         return []
 
 
-ACCOUNT_PORTAL_V2_URL = "https://www.epicgames.com/account/v2"
+ACCOUNT_PORTAL_V2_URL = "https://accounts.epicgames.com/account/v2"
 _ACCOUNT_PRELOAD_MARKER = "window.account_dataPreload"
 
 

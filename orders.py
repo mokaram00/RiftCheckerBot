@@ -8,11 +8,11 @@ from typing import Any, Dict, List, Optional
 
 from curl_cffi import requests
 
-from admin_api_summary import looks_like_cloudflare_html, session_add
+from admin_api_summary import non_json_api_response_hint, looks_like_cloudflare_html, session_add
 from epic_response_log import epic_log_from_response
 from utils import format_datetime_utc_ms_dual
 
-ORDER_HISTORY_AJAX_URL = "https://www.epicgames.com/account/v2/payment/ajaxGetOrderHistory"
+ORDER_HISTORY_AJAX_URL = "https://accounts.epicgames.com/account/v2/payment/ajaxGetOrderHistory"
 url = ORDER_HISTORY_AJAX_URL
 # Default headers for module-level tooling only; real calls use ``fetch_order_history_sync(access_token)``.
 headers = {
@@ -66,13 +66,16 @@ def fetch_order_history_sync(access_token: str) -> List[Dict[str, Any]]:
             raise RuntimeError(d)
         try:
             data = response.json()
-        except json.JSONDecodeError:
-            d = f"p.{page_idx} · not JSON"
-            if looks_like_cloudflare_html(raw):
-                d += " · likely Cloudflare / HTML"
+        except json.JSONDecodeError as err:
+            hint = non_json_api_response_hint(raw, what="order history body")
+            d = f"p.{page_idx} · {hint}"
             session_add("order · ajaxGetOrderHistory", False, d)
-            print(response.text, file=sys.stderr)
-            raise
+            logging.warning(
+                "ajaxGetOrderHistory: %s · preview=%r",
+                hint,
+                (raw or "")[:300],
+            )
+            raise RuntimeError(d) from err
         batch = data.get("orders") or []
         collected.extend(batch)
         npt = data.get("nextPageToken")

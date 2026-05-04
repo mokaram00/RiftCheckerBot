@@ -55,6 +55,7 @@ from epic_auth import (
     generate_epic_web_login_url_from_device_auth_sync,
     get_fortnite_launcher_exchange_code_from_device_auth_sync,
     delete_device_auth_on_epic_servers_sync,
+    fetch_public_device_auth_from_saved_device_auth_sync,
     device_auth_oauth_access_token_bearer_sync,
     epic_user_from_device_auth,
     epic_user_from_exchange_code,
@@ -1994,6 +1995,7 @@ def _manage_saved_account_markup(account_id: str) -> InlineKeyboardMarkup:
         InlineKeyboardButton("Play Fortnite", callback_data=f"X{aid}p"),
     )
     mk.add(InlineKeyboardButton("Web Login", callback_data=f"X{aid}w"))
+    mk.add(InlineKeyboardButton("Epic devices 🖥", callback_data=f"Z{aid}"))
     mk.add(
         InlineKeyboardButton(
             "Parental controls 🔢", callback_data=f"C{aid}h"
@@ -2002,6 +2004,138 @@ def _manage_saved_account_markup(account_id: str) -> InlineKeyboardMarkup:
     mk.add(InlineKeyboardButton("Disconnect Account 🗑️", callback_data=f"X{aid}d"))
     mk.add(InlineKeyboardButton("⬅️ Back", callback_data="sav"))
     return mk
+
+
+def _epic_saved_device_id(entry: dict) -> str:
+    da = entry.get("device_auth")
+    if not isinstance(da, dict):
+        return ""
+    return str(da.get("device_id") or da.get("deviceId") or "").strip()
+
+
+def _epic_devices_list_markup(account_id: str, row_count: int) -> InlineKeyboardMarkup:
+    aid = account_id.lower()
+    mk = InlineKeyboardMarkup()
+    for i in range(row_count):
+        mk.add(
+            InlineKeyboardButton(
+                f"🗑 {i + 1}",
+                callback_data=f"z{aid}{i:02x}",
+            )
+        )
+    mk.add(InlineKeyboardButton("⬅️ Back", callback_data=f"M{aid}"))
+    return mk
+
+
+_EPIC_DEVICE_REVOKE_PENDING_KEY = "_epic_device_revoke_pending"
+
+
+def _epic_device_confirm_markup(account_id: str) -> InlineKeyboardMarkup:
+    aid = account_id.lower()
+    mk = InlineKeyboardMarkup()
+    mk.row(
+        InlineKeyboardButton(
+            "✅ Revoke on Epic",
+            callback_data=f"Y{aid}",
+        ),
+        InlineKeyboardButton("⬅️ List", callback_data=f"Z{aid}"),
+    )
+    mk.add(InlineKeyboardButton("⬅️ Manage", callback_data=f"M{aid}"))
+    return mk
+
+
+# Same device-auth block as /login recheck; single edit must stay under Telegram limits.
+_EPIC_DEVICES_EDIT_MAX = 3600
+
+
+def _open_epic_devices_picker(
+    bot,
+    chat_id: int,
+    message_id: int,
+    user_data: dict,
+    account_id: str,
+    *,
+    tg_user=None,
+) -> None:
+    """Epic device-auth list (same formatting as Recheck) + per-row revoke (``Z`` flow)."""
+    aid = account_id.lower()
+    user_data.pop(_EPIC_DEVICE_REVOKE_PENDING_KEY, None)
+    if tg_user is not None:
+        tg_user.user_data = user_data
+        tg_user.update_data()
+    entry = _find_saved_account(user_data, aid)
+    if not entry:
+        return
+    back_only = InlineKeyboardMarkup().add(
+        InlineKeyboardButton("⬅️ Back", callback_data=f"M{aid}")
+    )
+    if not _saved_entry_has_usable_device_auth(entry):
+        bot.edit_message_text(
+            _safe_user_error("No saved login. Use <b>/login</b> once."),
+            chat_id,
+            message_id,
+            parse_mode="HTML",
+            reply_markup=back_only,
+        )
+        return
+    da = entry.get("device_auth") or {}
+    rows, err = fetch_public_device_auth_from_saved_device_auth_sync(da)
+    if err:
+        bot.edit_message_text(
+            "<b>Epic devices</b>\n\n" + escape_html_telegram(err),
+            chat_id,
+            message_id,
+            parse_mode="HTML",
+            reply_markup=back_only,
+        )
+        return
+    if not rows:
+        bot.edit_message_text(
+            "<b>Epic devices</b>\n\n<i>No device credentials on this account.</i>",
+            chat_id,
+            message_id,
+            parse_mode="HTML",
+            reply_markup=back_only,
+        )
+        return
+    intro = (
+        "<b>Epic devices</b>\n\n"
+        "<i>Same source as <b>Recheck</b> (full list from Epic). "
+        "Tap <b>🗑 N</b> to revoke row <b>N</b> on Epic (confirm next).</i>"
+    )
+    if len(rows) > 256:
+        intro += (
+            "\n\n<i>Note: Telegram callback limit — revoke buttons only for the "
+            "<b>first 256</b> rows; remove the rest from Epic account settings if needed.</i>"
+        )
+    intro += "\n\n"
+    devices_block = format_device_auth_telegram(rows)
+    full_text = intro + devices_block
+    markup = _epic_devices_list_markup(aid, min(len(rows), 256))
+    if len(full_text) <= _EPIC_DEVICES_EDIT_MAX:
+        bot.edit_message_text(
+            full_text,
+            chat_id,
+            message_id,
+            parse_mode="HTML",
+            reply_markup=markup,
+        )
+    else:
+        send_telegram_message_chunks(
+            bot,
+            chat_id,
+            full_text,
+            parse_mode="HTML",
+        )
+        bot.edit_message_text(
+            "<b>Epic devices</b>\n\n"
+            "<i>Full list sent in the message(s) <b>below</b>. "
+            "Use <b>🗑 N</b> here to revoke row <b>N</b> on Epic (same row order as that list).</i>",
+            chat_id,
+            message_id,
+            parse_mode="HTML",
+            reply_markup=markup,
+        )
 
 
 def _parental_controls_submenu_markup(account_id: str) -> InlineKeyboardMarkup:
@@ -3064,6 +3198,141 @@ def handle_menu_callback(bot, call) -> None:
             return
 
         bot.answer_callback_query(call.id, "Coming soon.", show_alert=False)
+        return
+
+    if data.startswith("Z") and len(data) == 33:
+        aid = data[1:].lower()
+        if not _EPIC_ACCOUNT_ID_RE.match(aid):
+            bot.answer_callback_query(
+                call.id,
+                "🚫 The account is invalid. Please log in again",
+                show_alert=True,
+            )
+            return
+        if not _find_saved_account(user_data, aid):
+            bot.answer_callback_query(call.id, "Account not found.", show_alert=True)
+            return
+        bot.answer_callback_query(call.id)
+        _open_epic_devices_picker(bot, cid, mid, user_data, aid, tg_user=tg_user)
+        return
+
+    if data.startswith("z") and len(data) == 35:
+        aid = data[1:33].lower()
+        idx = int(data[33:35], 16)
+        if not _EPIC_ACCOUNT_ID_RE.match(aid):
+            bot.answer_callback_query(
+                call.id,
+                "🚫 The account is invalid. Please log in again",
+                show_alert=True,
+            )
+            return
+        entry = _find_saved_account(user_data, aid)
+        if not entry:
+            bot.answer_callback_query(call.id, "Account not found.", show_alert=True)
+            return
+        if not _saved_entry_has_usable_device_auth(entry):
+            bot.answer_callback_query(call.id, "No saved login.", show_alert=True)
+            return
+        da = entry.get("device_auth") or {}
+        rows, err = fetch_public_device_auth_from_saved_device_auth_sync(da)
+        if err:
+            bot.answer_callback_query(call.id, err[:180], show_alert=True)
+            return
+        if idx < 0 or idx >= len(rows):
+            bot.answer_callback_query(call.id, "That row is no longer listed.", show_alert=True)
+            return
+        row = rows[idx]
+        target_did = str(
+            row.get("deviceId") or row.get("device_id") or ""
+        ).strip()
+        if not target_did:
+            bot.answer_callback_query(call.id, "Missing device id.", show_alert=True)
+            return
+        user_data[_EPIC_DEVICE_REVOKE_PENDING_KEY] = {
+            "account_id": aid,
+            "device_id": target_did,
+        }
+        tg_user.user_data = user_data
+        tg_user.update_data()
+        bot.answer_callback_query(call.id)
+        detail = format_device_auth_telegram([row])
+        text = (
+            "<b>Revoke device on Epic?</b>\n\n"
+            "<i>This signs that device out of Epic (same as account settings). "
+            "If it is <b>this bot’s</b> saved login, the account will be removed from the bot after revoke.</i>\n\n"
+            + detail
+        )
+        bot.edit_message_text(
+            text,
+            cid,
+            mid,
+            parse_mode="HTML",
+            reply_markup=_epic_device_confirm_markup(aid),
+        )
+        return
+
+    if data.startswith("Y") and len(data) == 33:
+        aid = data[1:].lower()
+        if not _EPIC_ACCOUNT_ID_RE.match(aid):
+            bot.answer_callback_query(
+                call.id,
+                "🚫 The account is invalid. Please log in again",
+                show_alert=True,
+            )
+            return
+        entry = _find_saved_account(user_data, aid)
+        if not entry:
+            bot.answer_callback_query(call.id, "Account not found.", show_alert=True)
+            return
+        if not _saved_entry_has_usable_device_auth(entry):
+            bot.answer_callback_query(call.id, "No saved login.", show_alert=True)
+            return
+        pend = user_data.get(_EPIC_DEVICE_REVOKE_PENDING_KEY)
+        if not isinstance(pend, dict):
+            bot.answer_callback_query(
+                call.id,
+                "Open the device list again, pick a row, then confirm.",
+                show_alert=True,
+            )
+            return
+        if (pend.get("account_id") or "").strip().lower() != aid:
+            bot.answer_callback_query(call.id, "Wrong account context.", show_alert=True)
+            return
+        target_did = str(pend.get("device_id") or "").strip()
+        if not target_did:
+            bot.answer_callback_query(call.id, "Missing device id.", show_alert=True)
+            return
+        user_data.pop(_EPIC_DEVICE_REVOKE_PENDING_KEY, None)
+        tg_user.user_data = user_data
+        tg_user.update_data()
+        da = entry.get("device_auth") or {}
+        bot.answer_callback_query(call.id)
+        ok, del_err = delete_device_auth_on_epic_servers_sync(
+            da, target_device_id=target_did
+        )
+        if not ok:
+            bot.send_message(
+                cid,
+                "<b>Epic revoke failed</b>\n" + _epic_friend_error_text_for_tg(del_err),
+                parse_mode="HTML",
+            )
+            return
+        saved_did = _epic_saved_device_id(entry)
+        if saved_did and target_did.lower() == saved_did.lower():
+            _remove_saved_account_from_profile(tg_user, user_data, aid)
+            _edit_saved_accounts_list(bot, cid, mid, user_data)
+            bot.send_message(
+                cid,
+                "<b>Device revoked</b> — that was this bot’s login, so the account was removed from saved accounts.",
+                parse_mode="HTML",
+            )
+            return
+        bot.send_message(
+            cid,
+            "<b>Device revoked on Epic.</b> Your saved login in this bot is unchanged.",
+            parse_mode="HTML",
+        )
+        _open_epic_devices_picker(bot, cid, mid, user_data, aid, tg_user=tg_user)
         return
 
     bot.answer_callback_query(call.id)

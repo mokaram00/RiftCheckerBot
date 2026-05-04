@@ -688,15 +688,22 @@ def device_auth_oauth_access_token_bearer_sync(
 
 async def delete_device_auth_on_epic_servers(
     device_auth: Dict[str, Any],
+    *,
+    target_device_id: Optional[str] = None,
 ) -> Tuple[bool, str]:
     """
     DELETE ``/account/api/public/account/{accountId}/deviceAuth/{deviceId}``.
+
+    OAuth uses ``device_auth`` (secret + device_id grant). The URL segment
+    ``deviceId`` defaults to the saved row; pass ``target_device_id`` to revoke
+    another row returned from ``fetch_public_device_auth_sync``.
     Success: HTTP 204 No Content.
     """
     acc = str(
         device_auth.get("account_id") or device_auth.get("accountId") or ""
     ).strip()
-    did = str(
+    td = (target_device_id or "").strip()
+    did = td or str(
         device_auth.get("device_id") or device_auth.get("deviceId") or ""
     ).strip()
     if not acc or not did:
@@ -725,8 +732,14 @@ async def delete_device_auth_on_epic_servers(
 
 def delete_device_auth_on_epic_servers_sync(
     device_auth: Dict[str, Any],
+    *,
+    target_device_id: Optional[str] = None,
 ) -> Tuple[bool, str]:
-    return asyncio.run(delete_device_auth_on_epic_servers(device_auth))
+    return asyncio.run(
+        delete_device_auth_on_epic_servers(
+            device_auth, target_device_id=target_device_id
+        )
+    )
 
 
 async def kill_epic_oauth_sessions(
@@ -1342,6 +1355,47 @@ def _device_auth_list_bearer_token(user: "EpicUser") -> str:
     """Prefer ``wait_device_code_token`` access token; fall back to iOS ``access_token``."""
     t = (getattr(user, "device_code_flow_access_token", None) or "").strip()
     return t if t else (user.access_token or "")
+
+
+def _parse_device_auths_public_api_payload(payload: Any) -> List[Dict[str, Any]]:
+    """Normalize Epic GET deviceAuth JSON to a list of dict rows."""
+    if payload is None:
+        return []
+    if isinstance(payload, list):
+        return [x for x in payload if isinstance(x, dict)]
+    if isinstance(payload, dict):
+        for key in ("deviceAuths", "device_auths"):
+            arr = payload.get(key)
+            if isinstance(arr, list):
+                return [x for x in arr if isinstance(x, dict)]
+    return []
+
+
+def fetch_public_device_auth_from_saved_device_auth_sync(
+    device_auth: Dict[str, Any],
+) -> Tuple[List[Dict[str, Any]], str]:
+    """
+    List device-auth rows for the account using the same launcher token chain as recheck.
+
+    Returns ``(rows, error_message)``. ``rows`` may be empty on success (no devices).
+    """
+    acc = str(
+        device_auth.get("account_id") or device_auth.get("accountId") or ""
+    ).strip()
+    if not acc:
+        return [], "missing account_id"
+    launcher_token = get_fortnite_launcher_access_token_from_device_auth_sync(
+        device_auth
+    )
+    if not launcher_token:
+        return (
+            [],
+            "could not obtain launcher token — try /login again",
+        )
+    payload = fetch_public_device_auth_sync(launcher_token, acc)
+    if payload is None:
+        return [], "device list unavailable (Epic error or network)"
+    return _parse_device_auths_public_api_payload(payload), ""
 
 
 def fetch_public_device_auth_sync(access_token: str, account_id: str) -> Any:
